@@ -1,13 +1,64 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: rgb(0, 174, 255);
+  --secondary-color: rgb(236, 180, 76);
+  --bg-color: rgb(204, 204, 204);
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bg-color);
+}
+
+.grid {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 50px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 15px;
+  transform: translateY(-10px);
+}
+
+.card:hover svg {
+  color: var(--secondary-color);
+}
+
+.card svg {
+  width: 60px;
+  height: 60px;
+  color: var(--primary-color);
+}
+
+.reaction {
+  background-color: var(--primary-color);
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
 }
