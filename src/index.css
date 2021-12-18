@@ -16,6 +16,11 @@ body {
   background-color: var(--bg-color);
 }
 
+svg {
+  width: 100px;
+  height: 100px;
+}
+
 .grid {
   padding: 50px;
   display: grid;
