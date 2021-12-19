@@ -54,8 +54,8 @@ const Home = () => {
 
   return (
     <div className="grid">
-      {tests.map((c) => (
-        <TestCard card={c} />
+      {tests.map((c, i) => (
+        <TestCard card={c} key={i} />
       ))}
     </div>
   );
