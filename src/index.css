@@ -163,3 +163,22 @@ svg {
   height: 100px;
   cursor: pointer;
 }
+
+.sequence .game {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.sequence .game > div {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: rgb(2, 125, 182);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.sequence .game > div.active {
+  background-color: #fff;
+}

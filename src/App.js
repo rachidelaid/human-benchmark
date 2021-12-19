@@ -5,6 +5,7 @@ import Reaction from './pages/Reaction';
 import Verbal from './pages/Verbal';
 import Number from './pages/Number';
 import Aim from './pages/Aim';
+import Sequence from './pages/Sequence';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/verbal" element={<Verbal />} />
         <Route exact path="/number" element={<Number />} />
         <Route exact path="/aim" element={<Aim />} />
+        <Route exact path="/sequence" element={<Sequence />} />
       </Routes>
     </BrowserRouter>
   );
