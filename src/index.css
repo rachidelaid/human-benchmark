@@ -16,6 +16,39 @@ body {
   background-color: var(--bg-color);
 }
 
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: unset;
+}
+
+button,
+.btn {
+  padding: 15px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+  background-color: #fff;
+  color: #000;
+}
+
+button:hover,
+.btn:hover {
+  background-color: rgb(214, 214, 214);
+  color: #000;
+}
+
+button.primary-btn {
+  background-color: rgb(255, 201, 101);
+}
+
+button.primary-btn:hover {
+  background-color: var(--secondary-color);
+}
+
 svg {
   width: 100px;
   height: 100px;
@@ -56,7 +89,7 @@ svg {
   color: var(--primary-color);
 }
 
-.reaction {
+.main {
   background-color: var(--primary-color);
   height: 100vh;
   color: #fff;
@@ -65,5 +98,19 @@ svg {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  text-align: center;
+  padding: 0 50px;
+}
+
+.reaction {
   cursor: pointer;
+}
+
+.verbal h1 {
+  margin: 50px 0;
+}
+
+.status {
+  display: flex;
+  gap: 100px;
 }

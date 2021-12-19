@@ -61,7 +61,7 @@ const Reaction = () => {
 
   return (
     <div
-      className="reaction"
+      className="reaction main"
       onClick={handleClick}
       style={{ backgroundColor: color }}
     >
