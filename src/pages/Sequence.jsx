@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const Sequence = () => {
+  const sound = ['C3', 'D3', 'E3', 'F3', 'G3', 'A4', 'B4', 'C4', 'D4'];
+
   const [status, setStatus] = useState('start');
   const [level, setLevel] = useState(1);
-  let curIndex = 0;
-  const sequence = [];
+  const [playing, setPlaying] = useState(false);
+  const curIndex = useRef(0);
+  const sequence = useRef([]);
+
+  const playSound = (i) => {
+    let s = new Audio(
+      `https://www.virtualmusicalinstruments.com/musical_instruments/xylophone/sounds/${sound[i]}.mp3`
+    );
+    s.volume = 0.5;
+    s.currentTime = 0;
+    s.loop = false;
+    s.play();
+  };
 
   const genSequence = () => {
-    const r = Math.floor(Math.random() * 8);
-    sequence.push(r);
+    const r = Math.floor(Math.random() * 9);
+
+    sequence.current.push(r);
   };
 
   const wait = (ms) => {
@@ -20,32 +34,54 @@ const Sequence = () => {
   };
 
   const playSequence = async () => {
-    for (let i = 0; i < sequence.length; i++) {
-      const index = sequence[i];
-      const elm = document.querySelector(`.game > div:nth-child(${index + 1})`);
+    setPlaying(true);
+
+    await wait(600);
+    for (let i = 0; i < sequence.current.length; i++) {
+      const index = sequence.current[i];
+      playSound(index);
+      await wait(100);
+      const elm = document.querySelector(`.game > [data-index="${index + 1}"]`);
       elm.classList.add('active');
       await wait(500);
       elm.classList.remove('active');
+      await wait(100);
     }
+
+    setPlaying(false);
   };
 
   const start = async () => {
-    genSequence();
     setStatus('game');
+    genSequence();
     setTimeout(() => {
       playSequence();
     }, 10);
   };
 
   const check = async (e) => {
+    if (playing) return;
+
     e.target.classList.add('active');
     setTimeout(() => {
       e.target.classList.remove('active');
     }, 300);
-    console.log(e.target.dataset.index, sequence[curIndex]);
-    if (e.target.dataset.index != sequence[curIndex]) {
-      console.log('lose');
+
+    console.log(e.target.dataset.index, sequence.current[curIndex.current] + 1);
+
+    if (e.target.dataset.index != sequence.current[curIndex.current] + 1) {
+      setStatus('result');
       return;
+    }
+
+    playSound(e.target.dataset.index - 1);
+    curIndex.current += 1;
+
+    if (curIndex.current >= sequence.current.length) {
+      setLevel(level + 1);
+      curIndex.current = 0;
+      genSequence();
+      playSequence();
     }
   };
 
@@ -78,7 +114,7 @@ const Sequence = () => {
       {status === 'result' && (
         <>
           <p>Sequence Memory</p>
-          <h1>Level 1</h1>
+          <h1>Level {level}</h1>
           <a href="/">Home</a>
         </>
       )}

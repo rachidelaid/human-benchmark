@@ -10,7 +10,7 @@ const Number = () => {
   const generateNum = () => {
     let n = '';
     for (let i = 0; i <= level; i++) {
-      const r = Math.floor(Math.random() * 9);
+      const r = Math.floor(Math.random() * 10);
       n += r;
     }
     setNum(n);
