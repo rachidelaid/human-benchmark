@@ -3,6 +3,7 @@
 *::before {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 :root {
@@ -165,7 +166,8 @@ svg {
 }
 
 .sequence .game,
-.visual .game {
+.visual .game,
+.chimp .game {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
@@ -224,4 +226,35 @@ svg {
   display: flex;
   align-items: center;
   gap: 100px;
+}
+
+.chimp .game {
+  grid-template-columns: repeat(9, 60px);
+  grid-template-rows: repeat(7, 60px);
+  gap: 20px;
+}
+
+.chimp .game > div {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  border: rgba(255, 255, 255, 0.5) 4px solid;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  visibility: hidden;
+}
+
+.chimp .game > div:hover {
+  border-color: #fff;
+}
+
+.chimp .game > .active {
+  border-color: #fff;
+  background-color: #fff;
 }

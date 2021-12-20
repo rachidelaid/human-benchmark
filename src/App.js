@@ -7,6 +7,7 @@ import Number from './pages/Number';
 import Aim from './pages/Aim';
 import Sequence from './pages/Sequence';
 import Visual from './pages/Visual';
+import Chimp from './pages/Chimp';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/aim" element={<Aim />} />
         <Route exact path="/sequence" element={<Sequence />} />
         <Route exact path="/visual" element={<Visual />} />
+        <Route exact path="/chimp" element={<Chimp />} />
       </Routes>
     </BrowserRouter>
   );
