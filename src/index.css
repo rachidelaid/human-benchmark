@@ -16,12 +16,6 @@ body {
   background-color: var(--bg-color);
 }
 
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 100px;
-}
-
 input {
   background: rgb(2, 125, 182);
   border-radius: 3px;
@@ -111,7 +105,7 @@ svg {
 
 .main {
   background-color: var(--primary-color);
-  min-height: 100vh;
+  height: 100vh;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -170,15 +164,16 @@ svg {
   cursor: pointer;
 }
 
-.game {
+.sequence .game,
+.visual .game {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 140px 140px 140px;
   gap: 10px;
   place-items: center;
 }
 
-.game > div {
+.sequence .game > div,
+.visual .game > div {
   width: 100px;
   height: 100px;
   border-radius: 5px;
@@ -187,11 +182,17 @@ svg {
   cursor: pointer;
 }
 
-.game > div.active {
+.sequence .game > .active,
+.visual .game > .active {
   background-color: #fff;
 }
 
-.game > div.wrong {
+.visual .game {
+  grid-template-columns: 140px 140px 140px;
+  grid-template-rows: 140px 140px 140px;
+}
+
+.visual .game > .wrong {
   background-color: rgb(0, 62, 90);
   animation: shake 0.2s ease-in-out;
 }
@@ -217,4 +218,10 @@ svg {
   60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 100px;
 }

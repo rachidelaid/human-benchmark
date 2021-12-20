@@ -16,10 +16,11 @@ const Aim = () => {
   const [left, setLeft] = useState(30);
   const [runs, setRuns] = useState([]);
   const [time, setTime] = useState(0);
-  const [position, setPosition] = useState({ width: 0, height: 0 });
   const target = useRef();
   const hit = useRef();
   const noHit = useRef();
+
+  const position = useRef({ width: 0, height: 0 });
 
   const sound = (c) => {
     let s;
@@ -37,15 +38,16 @@ const Aim = () => {
     const w = window.innerWidth - 150;
     const h = window.innerHeight - 150;
 
-    let done = false;
-
-    while (!done) {
+    while (true) {
       const width = Math.floor(Math.random() * w);
       const height = Math.floor(Math.random() * h);
 
-      if (width !== position.width || height !== position.height) {
-        done = true;
-        setPosition({ width, height });
+      if (
+        width !== position.current.width ||
+        height !== position.current.height
+      ) {
+        position.current = { width, height };
+        break;
       }
     }
   };
@@ -55,7 +57,7 @@ const Aim = () => {
     setStatus('game');
     setTimeout(() => {
       setTime(Date.now());
-      target.current.style.transform = `translate(${position.width}px,${position.height}px)`;
+      target.current.style.transform = `translate(${position.current.width}px,${position.current.height}px)`;
     }, 20);
   };
 
@@ -73,7 +75,7 @@ const Aim = () => {
     setTime(Date.now());
     setLeft(left - 1);
     getPosition();
-    target.current.style.transform = `translate(${position.width}px,${position.height}px)`;
+    target.current.style.transform = `translate(${position.current.width}px,${position.current.height}px)`;
   };
 
   const miss = (e) => {
