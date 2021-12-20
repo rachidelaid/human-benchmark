@@ -6,6 +6,7 @@ import Verbal from './pages/Verbal';
 import Number from './pages/Number';
 import Aim from './pages/Aim';
 import Sequence from './pages/Sequence';
+import Visual from './pages/Visual';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/number" element={<Number />} />
         <Route exact path="/aim" element={<Aim />} />
         <Route exact path="/sequence" element={<Sequence />} />
+        <Route exact path="/visual" element={<Visual />} />
       </Routes>
     </BrowserRouter>
   );
