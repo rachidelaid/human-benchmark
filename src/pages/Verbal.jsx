@@ -13,7 +13,7 @@ const Verbal = () => {
   };
 
   const generateWords = () => {
-    const list = randomWords(10).filter((w) => w.length >= 3);
+    const list = randomWords(30).filter((w) => w.length >= 3);
 
     let l = shuffleArray([
       ...list,

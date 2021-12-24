@@ -222,6 +222,16 @@ svg {
   }
 }
 
+@keyframes flick {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .flex {
   display: flex;
   align-items: center;
@@ -257,4 +267,29 @@ svg {
 .chimp .game > .active {
   border-color: #fff;
   background-color: #fff;
+}
+
+.input {
+  color: #000;
+  background-color: #fff;
+  margin: 20px 50px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.input .line {
+  position: absolute;
+  font-size: 130%;
+  font-weight: bold;
+  margin: -4px -7px;
+  animation: flick 0.8s;
+  animation-iteration-count: infinite;
+}
+
+.input .right {
+  background-color: rgb(94, 221, 94);
+}
+
+.input .wrong {
+  background-color: rgb(255, 97, 97);
 }
