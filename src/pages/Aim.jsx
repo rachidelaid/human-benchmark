@@ -84,6 +84,13 @@ const Aim = () => {
     }
   };
 
+  const saveScore = () => {
+    localStorage.setItem(
+      'aim',
+      `${Math.floor(runs.reduce((a, b) => a + b) / runs.length)} ms`
+    );
+  };
+
   return (
     <div className="aim main">
       <audio
@@ -121,6 +128,9 @@ const Aim = () => {
         <>
           <p>Average time per target</p>
           <h1>{Math.floor(runs.reduce((a, b) => a + b) / runs.length)} ms</h1>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

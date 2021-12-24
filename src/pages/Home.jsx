@@ -1,3 +1,4 @@
+import ResCard from '../components/ResCard';
 import { TestCard } from '../components/TestCard';
 
 const Home = () => {
@@ -53,11 +54,19 @@ const Home = () => {
   ];
 
   return (
-    <div className="grid">
-      {tests.map((c, i) => (
-        <TestCard card={c} key={i} />
-      ))}
-    </div>
+    <>
+      <div className="result">
+        <h2>Your Best Scores</h2>
+        {tests.map((c, i) => (
+          <ResCard res={c} key={i} />
+        ))}
+      </div>
+      <div className="grid">
+        {tests.map((c, i) => (
+          <TestCard card={c} key={i} />
+        ))}
+      </div>
+    </>
   );
 };
 

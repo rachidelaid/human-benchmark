@@ -85,6 +85,10 @@ const Sequence = () => {
     }
   };
 
+  const saveScore = () => {
+    localStorage.setItem('sequence', `level ${level}`);
+  };
+
   return (
     <div className="sequence main">
       {status === 'start' && (
@@ -115,6 +119,9 @@ const Sequence = () => {
         <>
           <p>Sequence Memory</p>
           <h1>Level {level}</h1>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

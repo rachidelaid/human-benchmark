@@ -97,6 +97,10 @@ const Chimp = () => {
     }
   };
 
+  const saveScore = () => {
+    localStorage.setItem('chimp', `level ${level.current}`);
+  };
+
   return (
     <div className="chimp main">
       {status === 'start' && (
@@ -134,6 +138,9 @@ const Chimp = () => {
         <>
           <p>Score</p>
           <h1>{level.current}</h1>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

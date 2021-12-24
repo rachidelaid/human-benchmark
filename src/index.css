@@ -69,6 +69,31 @@ svg {
   height: 100px;
 }
 
+.result {
+  background-color: var(--primary-color);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.result h2 {
+  margin-bottom: 20px;
+  color: yellow;
+}
+
+.resCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.resCard svg {
+  width: 30px;
+  height: 30px;
+}
+
 .grid {
   padding: 50px;
   display: grid;

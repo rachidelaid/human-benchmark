@@ -86,6 +86,11 @@ const Typing = () => {
     }
   };
 
+  const saveScore = () => {
+    const s = Math.floor(correct.current / 5 / (seconds / 60));
+    localStorage.setItem('typing', `${s} WPM`);
+  };
+
   return (
     <div className="main typing">
       {text.length !== input.current && (
@@ -112,6 +117,9 @@ const Typing = () => {
         <>
           <p>Typing Test</p>
           <h2>{Math.floor(correct.current / 5 / (seconds / 60))} WPM</h2>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

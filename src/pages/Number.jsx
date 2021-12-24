@@ -35,6 +35,11 @@ const Number = () => {
       setStatus('fail');
     }
   };
+
+  const saveScore = () => {
+    localStorage.setItem('number', `level ${level}`);
+  };
+
   return (
     <div className="number main">
       {status === 'start' && (
@@ -88,6 +93,9 @@ const Number = () => {
             {input.current.value}
           </h2>
           <h1>Level {level}</h1>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

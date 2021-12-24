@@ -115,6 +115,10 @@ const Visual = () => {
     }, 10);
   };
 
+  const saveScore = () => {
+    localStorage.setItem('visual', `level ${level.current}`);
+  };
+
   return (
     <div className="visual main">
       {status === 'game' && lives !== 0 && (
@@ -153,6 +157,9 @@ const Visual = () => {
         <>
           <p>Visual Memory</p>
           <h1>Level {level.current}</h1>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">Home</a>
         </>
       )}

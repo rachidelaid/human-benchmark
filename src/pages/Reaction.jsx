@@ -59,6 +59,16 @@ const Reaction = () => {
     }
   };
 
+  const saveScore = () => {
+    localStorage.setItem(
+      'reaction',
+      `${Math.floor(
+        runs.filter((x) => x > 0).reduce((a, b) => a + b) /
+          runs.filter((x) => x > 0).length
+      )} ms`
+    );
+  };
+
   return (
     <div
       className="reaction main"
@@ -108,6 +118,9 @@ const Reaction = () => {
             )}{' '}
             ms
           </h2>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
           <a href="/">home</a>
         </>
       )}

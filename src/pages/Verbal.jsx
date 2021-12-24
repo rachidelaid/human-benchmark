@@ -51,6 +51,10 @@ const Verbal = () => {
     setIndex(index + 1);
   };
 
+  const saveScore = () => {
+    localStorage.setItem('verbal', `${score} Words`);
+  };
+
   return (
     <div className="verbal main">
       {status === 'start' && (
@@ -88,9 +92,10 @@ const Verbal = () => {
         <>
           <p>Verbal Memory</p>
           <h1>{score} Words</h1>
-          <a href="/" className="btn">
-            home
-          </a>
+          <button className="primary-btn" onClick={saveScore}>
+            save score
+          </button>
+          <a href="/">home</a>
         </>
       )}
     </div>
