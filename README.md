@@ -1,6 +1,8 @@
 this is a clone of [human benchmark](https://humanbenchmark.com/) website, built using reactJS.
 check the live link below if you wanna try it out.
 
+![screenshot](./screenshot.png)
+
 ## Built With
 
 - ReactJs
