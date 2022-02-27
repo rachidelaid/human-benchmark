@@ -28,7 +28,7 @@ const Number = () => {
   };
 
   const check = () => {
-    if (input.current.value == num) {
+    if (+input.current.value === num) {
       setLevel(level + 1);
       setStatus('result');
     } else {

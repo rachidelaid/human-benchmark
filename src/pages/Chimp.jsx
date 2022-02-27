@@ -76,7 +76,7 @@ const Chimp = () => {
 
     e.target.classList.remove('active');
 
-    if (curNum == e.target.innerText) {
+    if (curNum === +e.target.innerText) {
       if (curNum === array.current.length) {
         level.current++;
         genArr();

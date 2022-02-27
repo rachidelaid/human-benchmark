@@ -11,7 +11,7 @@ const Sequence = () => {
 
   const playSound = (i) => {
     let s = new Audio(
-      `https://www.virtualmusicalinstruments.com/musical_instruments/xylophone/sounds/${sound[i]}.mp3`
+      `https://www.virtualmusicalinstruments.com/musical_instruments/xylophone/sounds/${sound[i]}.mp3`,
     );
     s.volume = 0.5;
     s.currentTime = 0;
@@ -69,7 +69,7 @@ const Sequence = () => {
 
     console.log(e.target.dataset.index, sequence.current[curIndex.current] + 1);
 
-    if (e.target.dataset.index != sequence.current[curIndex.current] + 1) {
+    if (+e.target.dataset.index !== sequence.current[curIndex.current] + 1) {
       setStatus('result');
       return;
     }
