@@ -20,7 +20,7 @@ check the live link below if you wanna try it out.
 
 ## Live Link
 
-[Live Link](https://human-banchmark.herokuapp.com)
+[Live Link](https://human-benchmark.netlify.app/)
 
 ## Authors
 

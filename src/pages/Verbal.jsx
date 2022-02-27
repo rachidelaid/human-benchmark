@@ -29,7 +29,7 @@ const Verbal = () => {
 
   useEffect(() => {
     generateWords();
-  }, [generateWords]);
+  }, []);
 
   const handleClick = (e) => {
     if (e.target.innerText === 'Old') {
